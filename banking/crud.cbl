@@ -5,7 +5,7 @@
       * Tectonics: cobc
       ******************************************************************
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       PROGRAM-ID. crud.
        DATA DIVISION.
        FILE SECTION.
        WORKING-STORAGE SECTION.
@@ -49,4 +49,4 @@
             DISPLAY "BANKING CRUD".
             DISPLAY "FIRST NAME: ".
             STOP RUN.
-       END PROGRAM YOUR-PROGRAM-NAME.
+       END PROGRAM crud.
