@@ -104,7 +104,25 @@
                                  TOTAL-E
                                  WS-FL.
 
-      
+       ENTRA-CODIGO.
+              ACCEPT CODIGO-E   AT 0438 WITH PROMPT AUTO.
+              MOVE   CODIGO-E   TO CODIGO-W.
+              IF CODIGO-W = 9999
+                 DISPLAY WS-MENS1 AT 1535
+                 CLOSE CLIENTES
+                 STOP RUN.
+              CLOSE CLIENTES.
+              PERFORM ABRE-ARQ.
+              MOVE ZEROS TO WS-FL.
+              PERFORM LER-REGISTRO UNTIL WS-FL >= 1.
+              IF WS-FL = 2
+                 DISPLAY "REGISTO JA CADSTRADO" AT 2030.
+
+       LER-REGISTRO.
+              READ CLIENTES NEXT AT END MOVE 1 TO WS-FL.
+              IF ARQST = "00"
+                 IF CODIGO-W = CODIGO
+                    MOVE 2 TO WS-FL.      
       
        FINALIZA.
               DISPLAY WS-MENS1 AT 1535.
