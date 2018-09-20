@@ -65,3 +65,14 @@
               02 LINE 10 COL 19 VALUE "SALDO ATUAL:".
               02 LINE 12 COL 19 VALUE "SALDO TOTAL:".
               02 LINE 15 COL 25 VALUE "MENSAGEM:".
+
+       PROCEDURE DIVISION.
+       INICIO.
+              PERFORM ABRE-ARQ.
+              PERFORM PROCESSO UNTIL WS-OPCAO = "N".
+              PERFORM FINALIZA.
+
+       FINALIZA.
+              DISPLAY WS-MENS1 AT 1535.
+              CLOSE CLIENTES.
+              STOP RUN.      
