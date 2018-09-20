@@ -53,3 +53,15 @@
          01 WS-ESPACO               PIC X(30) VALUE SPACES.
          01 WS-MENS1                PIC X(20) VALUE "FIM DE PROGRAMA".
          01 WS-FL                   PIC 9(01) VALUE ZEROS.
+
+         SCREEN SECTION.
+         01 TELA.
+              02 BLANK SCREEN.
+              02 LINE 2  COL 5  VALUE "  /  /  ".
+              02 COL 29  VALUE "CADASTRO BANCARIO".
+              02 LINE 4  COL 19 VALUE "CODIGO DA CONTA:".
+              02 LINE 6  COL 19 VALUE "NOME CLIENTE:".
+              02 LINE 8  COL 19 VALUE "DATA DE NASCIMENTO:".
+              02 LINE 10 COL 19 VALUE "SALDO ATUAL:".
+              02 LINE 12 COL 19 VALUE "SALDO TOTAL:".
+              02 LINE 15 COL 25 VALUE "MENSAGEM:".
