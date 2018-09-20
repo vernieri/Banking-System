@@ -1,6 +1,6 @@
       ******************************************************************
       * Author: Vernieri
-      * Date: September 18, 2018
+      * Date: September 20, 2018
       * Purpose: Banking C.R.U.D
       * Tectonics: cobc
       ******************************************************************
@@ -71,7 +71,13 @@
               PERFORM ABRE-ARQ.
               PERFORM PROCESSO UNTIL WS-OPCAO = "N".
               PERFORM FINALIZA.
-
+      
+       ABRE-ARQ.
+              OPEN I-O CLIENTES.
+              IF ARQST NOT = "00"
+                     CLOSE CLIENTES
+                     OPEN OUTPUT CLIENTES.
+      
        FINALIZA.
               DISPLAY WS-MENS1 AT 1535.
               CLOSE CLIENTES.
