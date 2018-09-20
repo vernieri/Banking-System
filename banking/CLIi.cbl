@@ -123,6 +123,37 @@
               IF ARQST = "00"
                  IF CODIGO-W = CODIGO
                     MOVE 2 TO WS-FL.      
+
+       CALCULO-TOTAL.
+              COMPUTE TOTAL-W = SALDO-W.
+              MOVE    TOTAL-W TO TOTAL-E.
+              DISPLAY TOTAL-E AT 1232.
+
+       GRAVAR.
+              DISPLAY "SALVAR (S/N)? [ ]" AT 1430.
+              ACCEPT WS-SALVA AT 1445 WITH PROMPT AUTO.
+
+       GRAVA-REG.
+              CLOSE CLIENTES.
+              OPEN EXTEND CLIENTES.
+              MOVE REG-CLI-W TO REG-CLI.
+              WRITE REG-CLI.
+              IF ARQST NOT = "00"
+                   DISPLAY "ERRO DE GRAVA€ÇO" AT 1535
+                   STOP " ".
+              CLOSE CLIENTES.
+              PERFORM ABRE-ARQ.
+
+       CONTINUA.
+              DISPLAY "CONTINUA (S/N)? [ ]" AT 1430.
+              ACCEPT WS-OPCAO AT 1447 WITH PROMPT AUTO.
+              IF WS-OPCAO = "S" OR = "N"
+                     DISPLAY WS-ESPACO AT 1430
+                     DISPLAY WS-ESPACO AT 1535
+              ELSE
+                     DISPLAY WS-ESPACO AT 1535
+                     DISPLAY "DIGITE S OU N" AT 1535.
+      
       
        FINALIZA.
               DISPLAY WS-MENS1 AT 1535.
