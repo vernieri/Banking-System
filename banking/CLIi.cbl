@@ -77,6 +77,34 @@
               IF ARQST NOT = "00"
                      CLOSE CLIENTES
                      OPEN OUTPUT CLIENTES.
+       PROCESSO.
+              PERFORM IMP-TELA.
+              PERFORM ENTRA-DADOS.
+              PERFORM CALCULO-TOTAL.
+              PERFORM GRAVAR  UNTIL WS-SALVA = "S" OR "N".
+              IF WS-SALVA = "S"
+                 PERFORM GRAVA-REG
+              ELSE
+                 DISPLAY "REGISTRO NAO GRAVADO" AT 2030.
+              PERFORM CONTINUA  UNTIL WS-OPCAO = "S" OR "N".
+
+       IMP-TELA.
+              DISPLAY TELA.
+              MOVE FUNCTION CURRENT-DATE TO DATA-SIS.
+              DISPLAY DIA   AT 0205.
+              DISPLAY MES   AT 0208.
+              DISPLAY ANO   AT 0211.
+      * ----------------------------- Inicialização das variáveis
+              MOVE SPACE  TO     WS-OPCAO
+                                 WS-SALVA
+                                 NOME-E.
+              MOVE ZEROS  TO     CODIGO-E
+                                 DATANASC-E
+                                 SALDO-E
+                                 TOTAL-E
+                                 WS-FL.
+
+      
       
        FINALIZA.
               DISPLAY WS-MENS1 AT 1535.
