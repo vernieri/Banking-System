@@ -67,3 +67,36 @@
               02 LINE 12 COL 19 VALUE "CUSTO TOTAL:".
               02 LINE 15 COL 25 VALUE "MENSAGEM:".
       
+       PROCEDURE DIVISION.
+       INICIO.
+              PERFORM ABRE-ARQ.
+              PERFORM PROCESSO UNTIL WS-OPCAO = "N".
+              PERFORM FINALIZA.
+
+       ABRE-ARQ.
+              OPEN I-O CLIENTES.
+              IF ARQST NOT = "00"
+                     CLOSE CLIENTES
+                     OPEN OUTPUT CLIENTES.
+
+       PROCESSO.
+              PERFORM IMP-TELA.
+              PERFORM ENTRA-DADOS.
+              PERFORM MOSTRA-DADOS.
+              PERFORM CONTINUA  UNTIL WS-OPCAO = "S" OR "N".
+
+       IMP-TELA.
+              DISPLAY TELA.
+              MOVE FUNCTION CURRENT-DATE TO DATA-SIS.
+              DISPLAY DIA   AT 0205.
+              DISPLAY MES   AT 0208.
+              DISPLAY ANO   AT 0211.
+      * ----------------------------- Inicialização das variáveis
+              MOVE SPACE  TO     WS-OPCAO
+                                 WS-SALVA
+                                 NOME-E.
+              MOVE ZEROS  TO     CODIGO-E
+                                 DATANASC-E
+                                 SALDO-E
+                                 TOTAL-E
+                                 WS-FL.
