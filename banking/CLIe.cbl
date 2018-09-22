@@ -162,3 +162,38 @@
               PERFORM LER-REGISTRO UNTIL WS-FL >= 1.
               IF WS-FL = 2
                  DISPLAY "REGISTO NAO CADASTRADO" AT 2030.
+      
+       LER-REGISTRO.
+              READ CLIENTES NEXT AT END MOVE 2 TO WS-FL.
+              IF ARQST = "00"
+                 IF CODIGO-W = CODIGO
+                    MOVE REG-CLI TO REG-CLI-W
+                    MOVE 1 TO WS-FL.
+
+       ENTRA-NOVO.
+              DISPLAY WS-ESPACO AT 2030.
+              ACCEPT NOME-E     AT 0740 WITH PROMPT AUTO.
+              ACCEPT DATANASC-E   AT 0936 WITH PROMPT AUTO.
+              ACCEPT SALDO-E AT 1139 WITH PROMPT AUTO.
+              MOVE   CODIGO-E   TO CODIGO-W.
+              MOVE   NOME-E     TO NOME-W.
+              MOVE   DATANASC-E   TO DATANASC-W.
+              MOVE   SALDO-E TO SALDO-W.
+
+
+
+
+       CONTINUA.
+              DISPLAY "CONTINUA (S/N)? [ ]" AT 1430.
+              ACCEPT WS-OPCAO AT 1447 WITH PROMPT AUTO.
+              IF WS-OPCAO = "S" OR = "N"
+                     DISPLAY WS-ESPACO AT 1430
+                     DISPLAY WS-ESPACO AT 1535
+              ELSE
+                     DISPLAY WS-ESPACO AT 1535
+                     DISPLAY "DIGITE S OU N" AT 1535.
+
+       FINALIZA.
+              DISPLAY WS-MENS1 AT 1535.
+              CLOSE CLIENTES.
+              STOP RUN.
