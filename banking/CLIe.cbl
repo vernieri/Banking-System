@@ -53,3 +53,18 @@
          01 WS-ESPACO               PIC X(30) VALUE SPACES.
          01 WS-MENS1                PIC X(20) VALUE "FIM DE PROGRAMA".
          01 WS-FL                   PIC 9(01) VALUE ZEROS.
+      
+       SCREEN SECTION.
+         01 TELA.
+              02 BLANK SCREEN.
+              02 LINE 2  COL 5  VALUE "  /  /  ".
+              02 COL 29  VALUE "CONTROLE DE MERCADORIAS".
+              02 LINE 4  COL 19 VALUE "CODIGO DO PRODUTO:".
+              02 LINE 6  COL 19 VALUE "NOME DO PRODUTO:".
+              02 LINE 7  COL 19 VALUE "NOVO NOME DO PRODUTO:".
+              02 LINE 8  COL 19 VALUE "QUANTIDADE:".
+              02 LINE 9  COL 19 VALUE "NOVA QUANTIDADE:".
+              02 LINE 10 COL 19 VALUE "CUSTO UNITARIO:".
+              02 LINE 11 COL 19 VALUE "NOVO CUSTO UNITARIO:".
+              02 LINE 12 COL 19 VALUE "CUSTO TOTAL:".
+              02 LINE 15 COL 25 VALUE "MENSAGEM:".
