@@ -78,3 +78,12 @@
            compute WArea = 3,1416 * (WRaio ** 2).
            move WArea to WArea-e.
            Display WArea-e AT 1021.      
+
+       Continua.
+           Display "Continua (s/n):" at 2230.
+           Accept wcont at 2246.
+
+       Finaliza.
+           DISPLAY MENSA2 AT 1830.
+           stop " ".
+      
