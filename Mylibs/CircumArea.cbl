@@ -56,3 +56,9 @@
            Perform Processo until wcont = "n".
            Perform Finaliza.
            Stop Run.
+
+       Processo.
+           Perform Inicializa.
+           Perform Entra-Raio.
+           Perform Calcula.
+           Perform Continua until wcont = "s" or "n".      
