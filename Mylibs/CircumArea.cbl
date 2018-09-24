@@ -36,3 +36,15 @@
            02 ANO               PIC 9(02) VALUE ZEROS.
            02 MES               PIC 9(02) VALUE ZEROS.
            02 DIA               PIC 9(02) VALUE ZEROS.      
+
+      SCREEN SECTION.
+      
+       01 TELA01.
+           02 BLANK SCREEN.
+           02 LINE 02 COLUMN 05 PIC 9(02)/ USING DIA.
+           02 LINE 02 COLUMN 08 PIC 9(02)/ USING MES.
+           02 LINE 02 COLUMN 11 PIC 9(02)  USING ANO.
+           02 LINE 02 COLUMN 28 VALUE
+                "Cálcula da Área de um Circulo".
+           02 LINE 08 COLUMN 15 VALUE "Raio:".
+           02 LINE 10 COLUMN 15 VALUE "Área:".
