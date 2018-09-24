@@ -73,3 +73,8 @@
            ACCEPT WRaio-e AT 0821.
            MOVE WRaio-e to WRaio.
            DISPLAY MENSA3 AT 1830.      
+
+       Calcula.
+           compute WArea = 3,1416 * (WRaio ** 2).
+           move WArea to WArea-e.
+           Display WArea-e AT 1021.      
