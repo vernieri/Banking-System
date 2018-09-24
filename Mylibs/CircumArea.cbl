@@ -67,3 +67,9 @@
            DISPLAY TELA01      AT    0101.
            MOVE    ZEROS       TO    DADOS.
            MOVE    spaces      TO    wcont.      
+
+       Entra-raio.
+           DISPLAY MENSA1 AT 2030.
+           ACCEPT WRaio-e AT 0821.
+           MOVE WRaio-e to WRaio.
+           DISPLAY MENSA3 AT 1830.      
