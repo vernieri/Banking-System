@@ -48,3 +48,11 @@
                 "Cálcula da Área de um Circulo".
            02 LINE 08 COLUMN 15 VALUE "Raio:".
            02 LINE 10 COLUMN 15 VALUE "Área:".
+
+      PROCEDURE DIVISION.
+
+       Inicio.
+           ACCEPT  DATA-DO-SISTEMA FROM DATE.
+           Perform Processo until wcont = "n".
+           Perform Finaliza.
+           Stop Run.
