@@ -62,3 +62,8 @@
            Perform Entra-Raio.
            Perform Calcula.
            Perform Continua until wcont = "s" or "n".      
+
+       Inicializa.
+           DISPLAY TELA01      AT    0101.
+           MOVE    ZEROS       TO    DADOS.
+           MOVE    spaces      TO    wcont.      
