@@ -78,3 +78,23 @@
            MOVE    high-values  TO    DADOS.
            MOVE    zeros        TO    EDITADAS.
            MOVE    spaces       TO    wcont.      
+      
+       Entrada.
+           Perform Entra-Nota1 until WNota1 <= 10.
+           Perform Entra-Nota2 until WNota2 <= 10.
+           DISPLAY MENSA5 AT 2030.
+           
+       Entra-Nota1.    
+           DISPLAY MENSA1 AT 2030.
+           ACCEPT WNOTA1-E AT 0823.
+           MOVE WNOTA1-E TO WNOTA1.
+           
+       Entra-Nota2.    
+           DISPLAY MENSA2 AT 2030.
+           ACCEPT WNOTA2-E AT 1023.
+           MOVE WNOTA2-E TO WNOTA2. 
+       
+       Entra-Nota3.    
+           DISPLAY MENSA3 AT 2030.
+           ACCEPT WNOTA3-E AT 1223.
+           MOVE WNOTA3-E TO WNOTA3. 
