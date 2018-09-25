@@ -57,3 +57,24 @@
            02 LINE 10 COLUMN 15 VALUE "Nota 2:".
            02 LINE 12 COLUMN 15 VALUE "Nota 3:".
            02 LINE 14 COLUMN 15 VALUE "Média :".      
+
+       PROCEDURE DIVISION.
+
+       Inicio.
+           ACCEPT  DATA-DO-SISTEMA FROM DATE.
+           Perform Processo until wcont = "n".
+           Perform Finaliza.
+           Stop run.
+           
+       Processo.    
+           Perform Inicializa.
+           Perform Entrada.
+           Perform Calcula.
+           Perform Continua.
+           
+       Inicializa.    
+           DISPLAY ERASE        AT    0101.
+           DISPLAY TELA01       AT    0101.
+           MOVE    high-values  TO    DADOS.
+           MOVE    zeros        TO    EDITADAS.
+           MOVE    spaces       TO    wcont.      
