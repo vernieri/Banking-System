@@ -98,3 +98,33 @@
            DISPLAY MENSA3 AT 2030.
            ACCEPT WNOTA3-E AT 1223.
            MOVE WNOTA3-E TO WNOTA3. 
+      
+       Calcula.
+           Compute WMEDIA = (WNOTA1 + WNOTA2) / 2.
+           Perform Mostra-Media.  
+           If WMedia < 6
+               Perform Entra-Nota3 until WNota3 <= 10
+               If WNota1 < WNota2
+                   Compute WMEDIA = (WNOTA3 + WNOTA2) / 2
+               else    
+                   Compute WMEDIA = (WNOTA1 + WNOTA3) / 2
+               End-if
+               Perform Mostra-Media.
+          
+       Mostra-Media.
+           MOVE WMEDIA TO WMEDIA-E.
+           DISPLAY WMEDIA-E AT 1423.
+           If WMedia >= 6  
+               Display "- APROVADO" at 1429
+           else
+               if WNota3 <> high-values
+                   Display "- REPROVADO" at 1429.
+               
+       Continua.
+           Display "Continua (s/n):" at 2230.
+           Accept wcont at 2246.
+       
+       Finaliza.
+           DISPLAY MENSA4 AT 1830.
+           stop " ".
+       
