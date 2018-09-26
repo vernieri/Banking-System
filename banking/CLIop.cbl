@@ -171,3 +171,17 @@
                  IF CODIGO-W = CODIGO
                     MOVE REG-CLI TO REG-CLI-W
                     MOVE 1 TO WS-FL.
+
+       ENTRA-NOVO.
+              DISPLAY WS-ESPACO AT 2030.
+                          
+              ACCEPT VALOR-E AT 1839 WITH PROMPT AUTO.
+              MOVE VALOR-E TO VALOR-W.
+              MOVE   CODIGO-E   TO CODIGO-W.
+              COMPUTE SALDO-W = SALDO-W - VALOR-W.
+              IF SALDO-W IS LESS THAN 0 
+                  DISPLAY "VOCE NAO POSSUI SALDO SUFICIENTE" AT 1939.
+                  PERFORM CONTINUA.
+
+              MOVE   SALDO-W TO SALDO-E.
+      
