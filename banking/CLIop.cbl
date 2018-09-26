@@ -55,3 +55,20 @@
          01 WS-ESPACO               PIC X(30) VALUE SPACES.
          01 WS-MENS1                PIC X(20) VALUE "FIM DE PROGRAMA".
          01 WS-FL                   PIC 9(01) VALUE ZEROS.
+
+       SCREEN SECTION.
+         01 TELA.
+              02 BLANK SCREEN.
+              02 LINE 2  COL 5  VALUE "  /  /  ".
+              02 COL 29  VALUE "OPERACAO BANCARIA".
+              02 LINE 4  COL 19 VALUE "CODIGO DA CONTA:".
+              02 LINE 6  COL 19 VALUE "NOME DO(a) OWNER: ".
+              02 LINE 8  COL 19 VALUE "SALDO ATUAL: ".
+              02 LINE 10  COL 19 VALUE "NOTAS DISPONIVEIS: ".
+              02 LINE 11 COL 19 VALUE "R$ 20,00".
+              02 LINE 12 COL 19 VALUE "R$ 50,00".
+              02 LINE 13 COL 19 VALUE "R$ 100,00".
+              02 LINE 14 COL 19 VALUE "R$ 200,00".
+
+              02 LINE 18 COL 19 VALUE "VALOR A SACAR : ".
+              02 LINE 19 COL 25 VALUE "MENSAGEM: ".
