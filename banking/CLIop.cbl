@@ -128,4 +128,46 @@
            DISPLAY NOME-E     AT 0636.
            DISPLAY SALDO-E    AT 0836.
 
-      
+ 
+       GRAVAR.
+              DISPLAY "SALVAR (S/N)? [ ]" AT 1430.
+              ACCEPT WS-SALVA AT 1445 WITH PROMPT AUTO.
+
+
+       GRAVA-REG.
+              CLOSE CLIENTES.
+              OPEN I-O CLIENTES.
+              READ CLIENTES.
+              MOVE REG-CLI-W TO REG-CLI.
+              REWRITE REG-CLI.
+              IF ARQST NOT = "00"
+                   DISPLAY "ERRO DE GRAVA€ÇO" AT 1535
+                   STOP " ".
+              CLOSE CLIENTES.
+              PERFORM ABRE-ARQ.
+
+       CALCULO-TOTAL.
+              COMPUTE TOTAL-W = SALDO-W.
+              MOVE    TOTAL-W TO TOTAL-E.
+              DISPLAY TOTAL-E AT 1232.
+
+       ENTRA-CODIGO.
+              ACCEPT CODIGO-E   AT 0438 WITH PROMPT AUTO.
+              MOVE   CODIGO-E   TO CODIGO-W.
+              IF CODIGO-W = 9999
+                 DISPLAY WS-MENS1 AT 1535
+                 CLOSE CLIENTES
+                 STOP RUN.
+              CLOSE CLIENTES.
+              PERFORM ABRE-ARQ.
+              MOVE ZEROS TO WS-FL.
+              PERFORM LER-REGISTRO UNTIL WS-FL >= 1.
+              IF WS-FL = 2
+                 DISPLAY "REGISTO NAO CADASTRADO" AT 2030.
+
+       LER-REGISTRO.
+              READ CLIENTES NEXT AT END MOVE 2 TO WS-FL.
+              IF ARQST = "00"
+                 IF CODIGO-W = CODIGO
+                    MOVE REG-CLI TO REG-CLI-W
+                    MOVE 1 TO WS-FL.
