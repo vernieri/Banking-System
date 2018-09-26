@@ -123,3 +123,9 @@
               MOVE   DATANASC-W TO DATANASC-E.
               MOVE   SALDO-W TO SALDO-E.
               MOVE   TOTAL-W TO TOTAL-E.      
+
+       MOSTRA-DADOS.
+           DISPLAY NOME-E     AT 0636.
+           DISPLAY SALDO-E    AT 0836.
+
+      
