@@ -58,14 +58,14 @@
          01 TELA.
               02 BLANK SCREEN.
               02 LINE 2  COL 5  VALUE "  /  /  ".
-              02 COL 29  VALUE "CONTROLE DE MERCADORIAS".
-              02 LINE 4  COL 19 VALUE "CODIGO DO PRODUTO:".
-              02 LINE 6  COL 19 VALUE "NOME DO PRODUTO:".
-              02 LINE 7  COL 19 VALUE "NOVO NOME DO PRODUTO:".
-              02 LINE 8  COL 19 VALUE "QUANTIDADE:".
-              02 LINE 9  COL 19 VALUE "NOVA QUANTIDADE:".
-              02 LINE 10 COL 19 VALUE "CUSTO UNITARIO:".
-              02 LINE 11 COL 19 VALUE "NOVO CUSTO UNITARIO:".
+              02 COL 29  VALUE "BANKING SYSTEM ED.FILES".
+              02 LINE 4  COL 19 VALUE "CODIGO DA CONTA:".
+              02 LINE 6  COL 19 VALUE "NOME DO DONO:".
+              02 LINE 7  COL 19 VALUE "NOVO NOME DO DONO:".
+              02 LINE 8  COL 19 VALUE "IDADE:".
+              02 LINE 9  COL 19 VALUE "NOVA IDADE:".
+              02 LINE 10 COL 19 VALUE "SALDO ATUAL:".
+              02 LINE 11 COL 19 VALUE "NOVO SALDO ATUAL:".
               02 LINE 12 COL 19 VALUE "CUSTO TOTAL:".
               02 LINE 15 COL 25 VALUE "MENSAGEM:".
 
