@@ -72,3 +72,54 @@
 
               02 LINE 18 COL 19 VALUE "VALOR A SACAR : ".
               02 LINE 19 COL 25 VALUE "MENSAGEM: ".
+
+       PROCEDURE DIVISION.
+
+       INICIO.
+              PERFORM ABRE-ARQ.
+              PERFORM PROCESSO UNTIL WS-OPCAO = "N".
+              PERFORM FINALIZA.
+
+       ABRE-ARQ.
+              OPEN I-O CLIENTES.
+              IF ARQST NOT = "00"
+                     CLOSE CLIENTES
+                     OPEN OUTPUT CLIENTES.
+
+       PROCESSO.
+              PERFORM IMP-TELA.
+              PERFORM ENTRA-DADOS.
+              PERFORM MOSTRA-DADOS.
+              PERFORM ENTRA-NOVO.
+              PERFORM CALCULO-TOTAL.
+              PERFORM GRAVAR  UNTIL WS-SALVA = "S" OR "N".
+              IF WS-SALVA = "S"
+                 PERFORM GRAVA-REG
+              ELSE
+                 DISPLAY "REGISTRO NAO GRAVADO" AT 2030.
+              PERFORM CONTINUA  UNTIL WS-OPCAO = "S" OR "N".
+
+       IMP-TELA.
+              DISPLAY TELA.
+              MOVE FUNCTION CURRENT-DATE TO DATA-SIS.
+              DISPLAY DIA   AT 0205.
+              DISPLAY MES   AT 0208.
+              DISPLAY ANO   AT 0211.
+      * ----------------------------- Inicialização das variáveis
+              MOVE SPACE  TO     WS-OPCAO
+                                 WS-SALVA
+                                 NOME-E.
+              MOVE ZEROS  TO     CODIGO-E
+                                 DATANASC-E
+                                 SALDO-E
+                                 TOTAL-E
+                                 WS-FL.
+
+       ENTRA-DADOS.
+              PERFORM ENTRA-CODIGO UNTIL WS-FL = 1.
+              DISPLAY WS-ESPACO AT 2030.
+              MOVE   CODIGO-W   TO CODIGO-E.
+              MOVE   NOME-W     TO NOME-E.
+              MOVE   DATANASC-W TO DATANASC-E.
+              MOVE   SALDO-W TO SALDO-E.
+              MOVE   TOTAL-W TO TOTAL-E.      
