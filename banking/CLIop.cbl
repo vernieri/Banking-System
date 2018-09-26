@@ -185,3 +185,20 @@
 
               MOVE   SALDO-W TO SALDO-E.
       
+
+
+
+       CONTINUA.
+              DISPLAY "CONTINUA (S/N)? [ ]" AT 1430.
+              ACCEPT WS-OPCAO AT 1447 WITH PROMPT AUTO.
+              IF WS-OPCAO = "S" OR = "N"
+                     DISPLAY WS-ESPACO AT 1430
+                     DISPLAY WS-ESPACO AT 1535
+              ELSE
+                     DISPLAY WS-ESPACO AT 1535
+                     DISPLAY "DIGITE S OU N" AT 1535.
+
+       FINALIZA.
+              DISPLAY WS-MENS1 AT 1535.
+              CLOSE CLIENTES.
+              STOP RUN.
