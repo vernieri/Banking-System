@@ -59,12 +59,12 @@
          01 TELA.
               02 BLANK SCREEN.
               02 LINE 2  COL 5  VALUE "  /  /  ".
-              02 COL 29  VALUE "CONTROLE DE MERCADORIAS".
-              02 LINE 4  COL 19 VALUE "CODIGO DO PRODUTO:".
-              02 LINE 6  COL 19 VALUE "NOME DO PRODUTO:".
-              02 LINE 8  COL 19 VALUE "QUANTIDADE:".
-              02 LINE 10 COL 19 VALUE "CUSTO UNITARIO:".
-              02 LINE 12 COL 19 VALUE "CUSTO TOTAL:".
+              02 COL 29  VALUE "CONTROLE BANCARIO".
+              02 LINE 4  COL 19 VALUE "CODIGO DA CONTA:".
+              02 LINE 6  COL 19 VALUE "NOME DO OWNER:".
+              02 LINE 8  COL 19 VALUE "IDADE:".
+              02 LINE 10 COL 19 VALUE "SALDO:".
+              02 LINE 12 COL 19 VALUE "SALDO TOTAL:".
               02 LINE 15 COL 25 VALUE "MENSAGEM:".
       
        PROCEDURE DIVISION.
