@@ -153,8 +153,7 @@
               ELSE
                      DISPLAY WS-ESPACO AT 1535
                      DISPLAY "DIGITE S OU N" AT 1535.
-      
-      
+            
        FINALIZA.
               DISPLAY WS-MENS1 AT 1535.
               CLOSE CLIENTES.
