@@ -92,3 +92,62 @@
        01 Tela-Opcao4-Fim.
            03 LINE 12 COL 23 VALUE "[ F I M   D E   P R O G R A M A ]"
                FOREGROUND-COLOR 14.
+
+             PROCEDURE DIVISION.
+
+       INICIO.
+           PERFORM PROCESSO UNTIL opcMenu1 = 4.
+           DISPLAY Limpa-a-Tela.
+           DISPLAY Tela-Opcao4-Fim.
+           STOP RUN.
+
+       IMP-CABEC.
+           DISPLAY Limpa-a-Tela.
+           DISPLAY Cabecalho.
+           MOVE FUNCTION CURRENT-DATE TO Data-do-Sistema.
+           DISPLAY ds-DIA AT 0210 FOREGROUND-COLOR 6.
+           DISPLAY ds-MES AT 0213 FOREGROUND-COLOR 6.
+           DISPLAY ds-ANO AT 0216 FOREGROUND-COLOR 6.
+
+       PROCESSO.
+           PERFORM IMP-CABEC.
+           DISPLAY Tela-Principal.
+           DISPLAY msg-opc AT 2125 FOREGROUND-COLOR 11.
+           MOVE ZEROS TO opcMenu1.
+           ACCEPT opcMenu1 AT 2149 WITH PROMPT AUTO.
+           EVALUATE opcMenu1
+               WHEN 1
+                   PERFORM IMP-CADASTRO UNTIL opcMenu2 = 3
+               WHEN 2
+                   PERFORM IMP-MOVIMENTO UNTIL opcMenu3 = 3
+      *         WHEN 3
+      *             PERFORM IMP-SOBRE
+           END-EVALUATE.
+
+       IMP-CADASTRO.
+           PERFORM IMP-CABEC.
+           DISPLAY Tela-Cadastro.
+           DISPLAY msg-opc AT 2125 FOREGROUND-COLOR 11.
+           MOVE ZEROS TO opcMenu2.
+           ACCEPT opcMenu2 AT 2149 WITH PROMPT AUTO.
+      *     EVALUATE opcMenu2
+      *         WHEN 1
+      *             CALL "LIVROS"
+      *         WHEN 2
+      *             CALL "SOCIOS"
+      *     END-EVALUATE.
+
+       IMP-MOVIMENTO.
+           PERFORM IMP-CABEC.
+           DISPLAY Tela-Movimento.
+           DISPLAY msg-opc AT 2125 FOREGROUND-COLOR 11.
+           MOVE ZEROS TO opcMenu3.
+           ACCEPT opcMenu3 AT 2149 WITH PROMPT AUTO.
+      *     EVALUATE opcMenu3
+      *         WHEN 1
+      *             CALL "EMPRESTIMO"
+      *         WHEN 2
+      *             CALL "DEVOLUCAO"
+      *     END-EVALUATE.
+
+      * IMP-SOBRE.
