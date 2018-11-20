@@ -175,3 +175,7 @@
        Ja-cadastrado.
            display "Codigo ja cadastrado" at 2321
            set wflag to 0.      
+
+       Nao-cadastrado.
+           display "Codigo nao cadastrado" at 2321
+           set wflag to 0.
