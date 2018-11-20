@@ -86,3 +86,16 @@
            02 line 16 col 29 value "6. Retorno".
            02 line 18 col 25 value "Escolha uma Opcao:".
       
+       01 tela-cadastro.
+           02 BLANK SCREEN.
+           02 line 2 col 5 value "Santos,    de           de     .".
+           02 line 2 col 13 PIC 9(02) using dia.
+           02 line 2 col 33 PIC 9(04) using ano.
+           02 line 2 col 45 value "Video Locadora" highlight.
+           02 line 4 col 29 value "Cadastro de Socios" highlight.
+           02 line 8 col 19 value "Numero: ".
+           02 line 9 col 19 value "Nome: ".
+           02 line 10 col 19 value "Endereco: ".
+           02 line 11 col 19 value "Cidade: ".
+           02 line 12 col 19 value "Telefone: ".
+           02 line 13 col 19 value "Livros: ".
