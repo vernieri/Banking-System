@@ -69,3 +69,20 @@
        01 wflag        pic 9(01) value zeros.
        01 espaco       pic x(30) value spaces.
        01 op-continua  pic x(01) value spaces.
+      
+       Screen Section.
+       01 tela-menu.
+           02 BLANK SCREEN.
+           02 line 2 col 5 value "Santos,    de            de     .".
+           02 line 2 col 13 PIC 9(02) using dia.
+           02 line 2 col 33 PIC 9(04) using ano.
+           02 line 2 col 45 value "Video Locadora" highlight.
+           02 line 4 col 29 value "Codastro de Socios" highlight.
+           02 line 6 col 29 value  "1. Inclusao".
+           02 line 8 col 29 value  "2. Alteracao".
+           02 line 10 col 29 value "3. Exclusao".
+           02 line 12 col 29 value "4. Consulta por Nome".
+           02 line 14 col 29 value "5. Consulta por Endereco".
+           02 line 16 col 29 value "6. Retorno".
+           02 line 18 col 25 value "Escolha uma Opcao:".
+      
