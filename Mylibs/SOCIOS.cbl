@@ -99,3 +99,34 @@
            02 line 11 col 19 value "Cidade: ".
            02 line 12 col 19 value "Telefone: ".
            02 line 13 col 19 value "Livros: ".
+
+       Procedure Division.
+       Inicio.
+           Perform Abre-arq.
+           Move function current-date to data-sis.
+           Perform Processo until op = 6.
+           Perform Finaliza.
+           stop run.
+
+       Abre-arq.
+           Open i-o BBSOCIOS.
+           If arqst not = "00"
+               Display "erro de abertura" at 2110
+               Close BBSOCIOS
+               Open output BBSOCIOS.
+
+       Processo.
+           Perform mostra-tela-menu.
+           move spaces to op-continua.
+           Accept op at 1845 with prompt auto.
+           Evaluate op
+           when 1
+               perform inclusao until op-continua = "n" or "N"
+           when 2
+               perform alteracao until op-continua = "n" or "N"
+           when 3
+               perform exclusao until op-continua = "n" or "N"
+           when 4
+               perform consulta-nome until op-continua = "n" or "N"
+           when 5
+               perform Consulta-endereco until op-continua = "n" or "N".      
