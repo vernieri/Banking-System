@@ -130,3 +130,48 @@
                perform consulta-nome until op-continua = "n" or "N"
            when 5
                perform Consulta-endereco until op-continua = "n" or "N".      
+
+       Inclusao.
+           Perform mostra-tela-cadastro.
+           Display "I N C L U S A O" at 0630 with highlight.
+           Perform entra-numero until wflag = 1.
+           Perform recebe-dados.
+           Perform Gravar-socio.
+           Perform continua.
+
+       Mostra-tela-menu.
+           Display tela-menu.
+           Display mes-t(mes) at 0219.
+           move zeros to op.
+
+       Mostra-tela-cadastro.
+           Display tela-cadastro.
+           Display mes-t(mes) at 0219.
+           move zeros to wflag Numero-W Livros-W Numero-E.
+           move spaces to op-continua salva.
+           move spaces to Nome-W Endereco-W Cidade-W Telefone-W.
+
+       Recebe-dados.
+           perform entra-nome   until wflag = 0.
+           perform entra-endereco    until wflag = 1.
+           perform entra-cidade  until wflag = 0.
+           perform entra-telefone      until wflag = 1.
+
+       entra-numero.
+           move 1 to wflag.
+           move zeros to Numero-e.
+           accept Numero-e at 0826 with prompt auto.
+           move Numero-E to Numero-W.
+           if Numero-W = 999999 then
+                Close BBSOCIOS
+                Exit program.
+           if op = 1
+                read BBSOCIOS key is Numero not invalid key perform
+                ja-cadastrado
+           else
+                read BBSOCIOS key is Numero invalid key perform
+                nao-cadastrado.
+
+       Ja-cadastrado.
+           display "Codigo ja cadastrado" at 2321
+           set wflag to 0.      
