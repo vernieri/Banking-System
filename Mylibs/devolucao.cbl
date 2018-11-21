@@ -135,3 +135,25 @@
        01 wflag        pic 9(01) value zeros.
        01 espaco       pic x(30) value spaces.
        01 op-continua  pic x(01) value spaces.      
+      
+      Screen Section.
+       01 tela-menu.
+           02 BLANK SCREEN.
+           02 line 2 col 5 value "Santos,    de            de     .".
+           02 line 2 col 13 PIC 9(02) using dia.
+           02 line 2 col 33 PIC 9(04) using ano.
+           02 line 4 col 29 value "DEVOLUCAO" highlight.
+           02 line 12 col 29 value "1. Devolucao".
+           02 line 14 col 29 value "2. Atualizar Data.".
+           02 line 16 col 29 value "9. Retorno".
+           02 line 18 col 25 value "Escolha uma Opcao:".
+
+       01 tela-consulta.
+           02 BLANK SCREEN.
+           02 line 2 col 5 value "Santos,    de           de     .".
+           02 line 2 col 13 PIC 9(02) using dia.
+           02 line 2 col 33 PIC 9(04) using ano.
+           02 line 4 col 29 value "Consulta de Livros" highlight.
+           02 line 8 col 19 value "Tombo: ".
+           02 line 9 col 19 value "Data de retirada: ".
+           02 line 10 col 19 value "Data de devolucao: ".      
