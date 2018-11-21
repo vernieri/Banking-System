@@ -179,3 +179,137 @@
        Nao-cadastrado.
            display "Codigo nao cadastrado" at 2321
            set wflag to 0.
+       entra-nome.
+           accept Nome-W at 0927 with prompt auto.
+           if Nome-W = spaces then
+                display "Digite o Nome do Socio." at 2321
+           else
+                display espaco at 2321
+                move 0 to wflag.
+
+       entra-endereco.
+           accept Endereco-W at 1027 with prompt auto.
+           if Endereco-W = spaces then
+                display "Digite o Endereco do Socio." at 2321
+           else
+                display espaco at 2321
+                move 1 to wflag.
+
+       entra-cidade.
+           accept Cidade-W at 1128 with prompt auto.
+           if Cidade-W = spaces then
+                display "Digite a Cidade do Socio." at 2321
+           else
+                display espaco at 2321
+                move 0 to wflag.
+
+       entra-telefone.
+           accept Telefone-W at 1224 with prompt auto.
+           if Telefone-W = zeros then
+                display "Digite o Telefone do Socio." at 2321
+           else
+                   display espaco at 2321
+                   move 1 to wflag.
+
+
+       Gravar-socio.
+           Display "Gravar Registro? <S/N> [ ]" at 2321.
+           Accept salva at 2345 with prompt auto.
+           If salva = "S" or "s" then
+               Move Numero-W      to Numero
+               Move Nome-W        to Nome
+               Move Endereco-W    to Endereco
+               Move Cidade-W      to Cidade
+               Move Telefone-W    to Telefone
+               Move Livros-W      to Livros
+               If op = 1
+                   Write reg-socio invalid key perform estuda-erro
+               else
+                   Rewrite reg-socio invalid key perform estuda-erro.
+
+       Continua.
+           display espaco at 2321.
+           display "Continua <S/N> [ ]" at 2321.
+           accept op-continua at 2337 with prompt auto.
+           if op-continua = "S" or "s" then
+                display espaco at 2315.
+
+       Estuda-erro.
+           display "Erro de atualização." at 2321.
+           display arqst at 2221.
+           stop " ".
+
+       Alteracao.
+           perform mostra-tela-cadastro.
+           Display "A L T E R A C A O" at 0630 with highlight.
+           Display "Empresatado: " at 1719.
+           Perform entra-numero until wflag = 1.
+           Perform mostra-dados.
+           Perform recebe-dados.
+           Perform Gravar-socio.
+           Perform continua.
+
+       Mostra-dados.
+           Move reg-socio to w-reg-socio.
+           Move Telefone-W to Telefone-E
+           Display Nome-W at 0927.
+           Display Endereco-W at 1027.
+           Display Cidade-W at 1128.
+           Display Telefone-W at 1224.
+
+
+       Exclusao.
+           perform mostra-tela-cadastro.
+           Display "E X C L U S A O" at 0630 with highlight.
+           Perform entra-numero until wflag = 1.
+           Perform mostra-dados.
+           Perform excluir-livro.
+           Perform continua.
+
+       Excluir-livro.
+           display espaco at 2315.
+           display "Excluir? <S/N> [ ]" at 2321.
+           accept salva at 2337 with prompt auto.
+           if salva = "S" or "s" then
+                Delete BBSOCIOS invalid key perform
+                estuda-erro
+                display espaco at 2315.
+
+       Consulta-Numero.
+           perform mostra-tela-cadastro.
+           Display "C O N S U L T A   T O M B O" at 0630 with highlight.
+           Perform entra-numero until wflag = 1.
+           Perform mostra-dados.
+           Perform continua.
+
+       consulta-nome.
+           perform mostra-tela-cadastro.
+           Display
+           "C O N S U L T A   N O M E" at 0630 with highlight.
+           Perform entra-nome.
+           move Nome-W to Nome.
+           read BBSOCIOS key is Nome
+               invalid key
+                   display "Socio nao encontrado!" at 1835
+               not invalid key
+                   Perform mostra-dados
+                   Display Numero at 0826.
+           Perform continua.
+
+       Consulta-endereco.
+           perform mostra-tela-cadastro.
+           Display
+           "C O N S U L T A   E N D E R E C O" at 0630 with highlight.
+           Perform entra-endereco.
+           move Endereco-W to Endereco.
+           read BBSOCIOS key is Endereco
+               invalid key
+                   display "Socio nao encontrado!" at 1835
+               not invalid key
+                   Perform mostra-dados
+                   Display Numero at 0826.
+           Perform continua.
+
+       Finaliza.
+           close BBSOCIOS.
+           Display "F I M   D O   P R O G R A M A" at 1530.
