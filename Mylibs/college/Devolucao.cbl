@@ -1,4 +1,4 @@
-           ******************************************************************
+      ******************************************************************
       * Author: Joao Victor && Julio Cesar
       * Date: 22/11/2018
       * Purpose: Fins academicos
@@ -213,3 +213,28 @@
               display multa at 1712
            else
               display "Multa muito alta!" at 2306.      
+
+       Devolucao.
+           Display tela-devolucao.
+           accept w-tombo-li at 0827.
+           move w-tombo-li to tombo-li
+           READ BBSOCIOS key is tombo-li INVALID KEY perform
+           estuda-erro.
+           accept w-numero-so at 0930.
+           move w-numero-so to numero-so.
+           READ BBLIVROS key is numero-so
+           INVALID KEY perform estuda-erro.
+           READ BBMOVIM key is data-retirada INVALID KEY perform
+           estuda-erro.
+           move data-retirada to w-data-retirada.
+           read BBMOVIM key is data-devolucao invalid key perform
+           estuda-erro.
+           move data-devolucao to w-data-devolucao.
+           display w-data-retirada at 1040.
+           display w-data-devolucao at 1140.
+           perform processo-multa.
+           accept op at 1345.
+           if op = "S" or "s"
+              delete BBMOVIM invalid key perform estuda-erro
+           ELSE
+              PERFORM Processo.      
