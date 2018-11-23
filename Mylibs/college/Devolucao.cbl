@@ -172,82 +172,31 @@
            02 line 10 col 19 value "Data de retirada: ".
            02 line 11 col 19 value "Data de devolucao: ".
            02 line 13 col 19 value "Atualizar? <S/N>".
+      
+       Procedure Division.
        Inicio.
            Perform Abre-arq1.
            Perform Abre-arq2.
            Perform Abre-arq3.
            Move function current-date to data-sis.
-           Perform Processo until op = 6.
+           Perform Processo until op = 9.
            Perform Finaliza.
            stop run.
-
        Abre-arq1.
            Open i-o BBMOVIM.
            If arqst not = "00"
                Display "erro de abertura" at 2110
                Close BBMOVIM
                Open output BBMOVIM.
-
        Abre-arq2.
            Open i-o BBLIVROS.
            If arqst not = "00"
                Display "erro de abertura" at 2110
                Close BBLIVROS
                Open output BBLIVROS.
-
        Abre-arq3.
            Open i-o BBSOCIOS.
                If arqst not = "00"
                Display "erro de abertura" at 2110
                Close BBLIVROS
                Open output BBLIVROS.
-
-       Processo.
-           Perform mostra-tela-menu.
-           move spaces to op-continua.
-           Accept op at 1845 with prompt auto.
-           Evaluate op
-           when 1
-               perform devolucao until op-continua = "n" or "N"
-           when 2
-               perform atualizar until op-continua = "n" or "N"
-           when 9
-               perform retorno until op-continua = "n" or "N".
-
-       Mostra-tela-menu.
-           Display tela-menu.
-           Display mes-t(mes) at 0219.
-           move zeros to op.
-
-       Mostra-tela-cadastro.
-           Display tela-consulta.
-           Display mes-t(mes) at 0219.
-           move zeros to wflag w-tombo w-numero
-                         w-data-retirada w-data-devolucao.
-
-           move spaces to op-continua salva.
-
-       Devolucao.
-           perform mostra-tela-cadastro.
-           Display "DEVOLVENDO LIVRO" at 0630 with highlight.
-           accept w-tombo-li  at   1130.
-           accept w-numero-so at   1230.
-           if
-           Perform mostra-dados.
-           Perform continua.
-
-       Mostra-dados.
-           Move reg-livro to w-reg-livro.
-           Move w-preco to w-preco-e
-           Display w-tombo-li at 0927.
-
-           Display w-procedencia at 1632.
-           Display w-emprestado at 1732.
-
-
-       Finaliza.
-           close BBMOVIM.
-           close BBLIVROS.
-
-           Display "F I M   D O   P R O G R A M A" at 1530.
-      
