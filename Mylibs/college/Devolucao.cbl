@@ -200,3 +200,16 @@
                Display "erro de abertura" at 2110
                Close BBLIVROS
                Open output BBLIVROS.
+
+       Processo-multa.
+           compute multa = w-data-retirada-ano - w-data-devolucao-ano.
+           if multa is less than 0
+              compute multa = w-data-retirada-mes -
+              w-data-devolucao-mes
+              compute check = (w-data-retirada-dia -
+              w-data-devolucao-dia)
+              MULTIPLY multa by check
+              display "Multa de:" at 1706
+              display multa at 1712
+           else
+              display "Multa muito alta!" at 2306.      
