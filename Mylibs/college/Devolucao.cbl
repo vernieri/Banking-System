@@ -1,16 +1,14 @@
-      ******************************************************************
+           ******************************************************************
       * Author: Joao Victor && Julio Cesar
-      * Date: 14/11/2018
+      * Date: 22/11/2018
       * Purpose: Fins academicos
       * Tectonics: cobc
       ******************************************************************
        IDENTIFICATION DIVISION.
        PROGRAM-ID. Devolucao.
-
        Environment Division.
        CONFIGURATION SECTION.
            Special-names.   decimal-point is comma.
-
        INPUT-OUTPUT SECTION.
        File-Control.
            Select BBMOVIM assign to disk
@@ -40,9 +38,16 @@
            value of file-id is "bbmovim.dat".
        01 reg-movim.
            02 numero           pic 9(05).
-           02 tombo            pic x(06).
-           02 data-retirada    pic 9(08).
-           02 data-devolucao   pic 9(08).
+           02 tombo            pic 9(06).
+           02 data-retirada.
+             03 data-retirada-dia pic 9(02).
+             03 data-retirada-mes pic 9(02).
+             03 data-retirada-ano pic 9(04).
+
+           02 data-devolucao.
+             03 data-devolucao-dia pic 9(02).
+             03 data-devolucao-mes pic 9(02).
+             03 data-devolucao-ano pic 9(04).
 
        FD  BBLIVROS label record standard
        value of file-id is "bblivros.dat".
@@ -57,7 +62,6 @@
            02 preco        pic 9(04)V99.
            02 procedencia  pic x(20).
            02 emprestado   pic 9(05).
-
        FD BBSOCIOS label record STANDARD
        value of FILE-ID is "bbsocios.dat".
        01 reg-socio.
@@ -67,20 +71,23 @@
            02 cidade       pic x(20).
            02 telefone     pic x(10).
            02 livros       pic x(20).
-
-
-
        Working-storage section.
        01 w-reg-movim.
            02 w-numero             pic 9(05).
            02 w-tombo              pic x(06).
-           02 w-data-retirada      pic 9(08).
-           02 w-data-devolucao     pic 9(08).
+           02 w-data-retirada.
+             03 w-data-retirada-dia pic 9(02).
+             03 w-data-retirada-mes pic 9(02).
+             03 w-data-retirada-ano pic 9(04).
+
+           02 w-data-devolucao.
+             03 w-data-devolucao-dia pic 9(02).
+             03 w-data-devolucao-mes pic 9(02).
+             03 w-data-devolucao-ano pic 9(04).
 
        01 editadas.
            02 w-numero-e      pic  ZZ.ZZ9.
            02 w-tombo-e       pic ZZZ.ZZ9.
-
        01 w-reg-livro.
            02 w-tombo-li     pic 9(06).
            02 w-titulo       pic x(30).
@@ -92,7 +99,6 @@
            02 w-preco        pic 9(04)V99.
            02 w-procedencia  pic x(20).
            02 w-emprestado   pic 9(05).
-
        01 w-reg-socio.
            02 w-numero-so    pic 9(05).
            02 w-nome         pic x(30).
@@ -100,18 +106,13 @@
            02 w-cidade       pic x(20).
            02 w-telefone     pic x(10).
            02 w-livros       pic x(20).
-
-
        01 editadas.
            02 w-tombo-li-e      pic ZZZ.ZZ9.
            02 w-preco-e      pic Z.ZZ9,99.
-
-
        01 data-sis.
            02 ano   pic 9(04).
            02 mes   pic 9(02).
            02 dia   pic 9(02).
-
        01 desmes.
            02 filler pic x(10) value "Janeiro".
            02 filler pic x(10) value "Fevereiro".
@@ -125,18 +126,18 @@
            02 filler pic x(10) value "Outubro".
            02 filler pic x(10) value "Novembro".
            02 filler pic x(10) value "Dezembro".
-
        01 tabela-meses redefines desmes.
            02 mes-t pic x(10) occurs 12 times.
-
        01 arqst        pic x(02).
+       01 multa        pic 9(06) value zeros.
        01 op           pic 9(01) value zeros.
        01 salva        pic x(01) value spaces.
+       01 check        pic 9(06) value zeros.
        01 wflag        pic 9(01) value zeros.
        01 espaco       pic x(30) value spaces.
-       01 op-continua  pic x(01) value spaces.      
-      
-      Screen Section.
+       01 op-continua  pic x(01) value spaces.
+
+       Screen Section.
        01 tela-menu.
            02 BLANK SCREEN.
            02 line 2 col 5 value "Santos,    de            de     .".
@@ -148,17 +149,29 @@
            02 line 16 col 29 value "9. Retorno".
            02 line 18 col 25 value "Escolha uma Opcao:".
 
-       01 tela-consulta.
+       01 tela-devolucao.
            02 BLANK SCREEN.
            02 line 2 col 5 value "Santos,    de           de     .".
            02 line 2 col 13 PIC 9(02) using dia.
            02 line 2 col 33 PIC 9(04) using ano.
-           02 line 4 col 29 value "Consulta de Livros" highlight.
+           02 line 4 col 29 value "Devolucao de Livro" highlight.
            02 line 8 col 19 value "Tombo: ".
-           02 line 9 col 19 value "Data de retirada: ".
-           02 line 10 col 19 value "Data de devolucao: ".      
+           02 line 9 col 19 value "Numero:".
+           02 line 10 col 19 value "Data de retirada: ".
+           02 line 11 col 19 value "Data de devolucao: ".
+           02 line 13 col 19 value "Deseja devolver? <S/N>".
 
-      Procedure Division.
+       01 tela-atualiza.
+           02 BLANK SCREEN.
+           02 line 2 col 5 value "Santos,    de           de     .".
+           02 line 2 col 13 PIC 9(02) using dia.
+           02 line 2 col 33 PIC 9(04) using ano.
+           02 line 4 col 29 value "Atualiza dados" highlight.
+           02 line 8 col 19 value "Tombo: ".
+           02 line 9 col 19 value "Numero:".
+           02 line 10 col 19 value "Data de retirada: ".
+           02 line 11 col 19 value "Data de devolucao: ".
+           02 line 13 col 19 value "Atualizar? <S/N>".
        Inicio.
            Perform Abre-arq1.
            Perform Abre-arq2.
