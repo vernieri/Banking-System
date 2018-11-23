@@ -238,3 +238,8 @@
               delete BBMOVIM invalid key perform estuda-erro
            ELSE
               PERFORM Processo.      
+
+       Estuda-erro.
+           display "Erro! Registro Nao encontrado!." at 2121.
+           display arqst at 2221.
+           stop " ".      
