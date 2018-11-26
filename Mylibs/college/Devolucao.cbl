@@ -243,3 +243,22 @@
            display "Erro! Registro Nao encontrado!." at 2121.
            display arqst at 2221.
            stop " ".      
+
+      
+       Atualizar.
+           move spaces to op-continua.
+           Display tela-atualiza.
+           accept w-numero at 0830.
+           accept w-tombo at 0930.
+           accept w-data-retirada at 1040.
+           accept w-data-devolucao at 1140.
+           accept op-continua at 1340.
+           if op-continua = "S" or "s"
+               move w-numero to numero
+               move w-tombo to tombo
+               move w-data-retirada to data-retirada
+               move w-data-devolucao to data-devolucao
+               rewrite reg-movim invalid key perform estuda-erro
+           else
+              Perform Processo.
+      
