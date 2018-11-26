@@ -138,3 +138,24 @@
        01 espaco       pic x(30) value spaces.
        01 op-continua  pic x(01) value spaces.
       
+       Screen Section.
+       01 tela-menu.
+           02 BLANK SCREEN.
+           02 line 2 col 5 value "Santos,    de            de     .".
+           02 line 2 col 13 PIC 9(02) using dia.
+           02 line 2 col 33 PIC 9(04) using ano.
+           02 line 4 col 29 value "EMPRESTIMO" highlight.
+           02 line 12 col 29 value "1. Registrar Emprestimo".
+           02 line 16 col 29 value "9. Retorno".
+           02 line 18 col 25 value "Escolha uma Opcao:".
+
+       01 tela-emprestimo.
+           02 BLANK SCREEN.
+           02 line 2 col 5 value "Santos,    de           de     .".
+           02 line 2 col 13 PIC 9(02) using dia.
+           02 line 2 col 33 PIC 9(04) using ano.
+           02 line 4 col 29 value "Emprestimo de Livro" highlight.
+           02 line 8 col 19 value "Tombo: ".
+           02 line 9 col 19 value "Numero:".
+           02 line 10 col 19 value "Data de retirada: ".
+           02 line 13 col 19 value "Deseja emprestar? <S/N>".
