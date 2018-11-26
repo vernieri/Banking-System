@@ -70,4 +70,71 @@
            02 endereco     pic x(60).
            02 cidade       pic x(20).
            02 telefone     pic x(10).
-           02 livros       pic 9(20).      
+           02 livros       pic 9(20).   
+
+       Working-storage section.
+       01 w-reg-movim.
+           02 w-numero             pic 9(05).
+           02 w-tombo              pic x(06).
+           02 w-data-retirada.
+             03 w-data-retirada-dia pic 9(02).
+             03 w-data-retirada-mes pic 9(02).
+             03 w-data-retirada-ano pic 9(04).
+
+           02 w-data-devolucao.
+             03 w-data-devolucao-dia pic 9(02).
+             03 w-data-devolucao-mes pic 9(02).
+             03 w-data-devolucao-ano pic 9(04).
+
+       01 editadas.
+           02 w-numero-e      pic  ZZ.ZZ9.
+           02 w-tombo-e       pic ZZZ.ZZ9.
+       01 w-reg-livro.
+           02 w-tombo-li     pic 9(06).
+           02 w-titulo       pic x(30).
+           02 w-autor        pic x(20).
+           02 w-editora      pic x(15).
+           02 w-ano-livro    pic 9(04).
+           02 w-doacao       pic x(01).
+           02 w-doador       pic x(20).
+           02 w-preco        pic 9(04)V99.
+           02 w-procedencia  pic x(20).
+           02 w-emprestado   pic 9(05).
+       01 w-reg-socio.
+           02 w-numero-so    pic 9(05).
+           02 w-nome         pic x(30).
+           02 w-endereco     pic x(60).
+           02 w-cidade       pic x(20).
+           02 w-telefone     pic x(10).
+           02 w-livros       pic x(20).
+       01 editadas.
+           02 w-tombo-li-e      pic ZZZ.ZZ9.
+           02 w-preco-e      pic Z.ZZ9,99.
+       01 data-sis.
+           02 ano   pic 9(04).
+           02 mes   pic 9(02).
+           02 dia   pic 9(02).
+       01 desmes.
+           02 filler pic x(10) value "Janeiro".
+           02 filler pic x(10) value "Fevereiro".
+           02 filler pic x(10) value "MarÃ§o".
+           02 filler pic x(10) value "Abril".
+           02 filler pic x(10) value "Maio".
+           02 filler pic x(10) value "Junho".
+           02 filler pic x(10) value "Julho".
+           02 filler pic x(10) value "Agosto".
+           02 filler pic x(10) value "Setembro".
+           02 filler pic x(10) value "Outubro".
+           02 filler pic x(10) value "Novembro".
+           02 filler pic x(10) value "Dezembro".
+       01 tabela-meses redefines desmes.
+           02 mes-t pic x(10) occurs 12 times.
+       01 arqst        pic x(02).
+       01 multa        pic 9(06) value zeros.
+       01 op           pic 9(01) value zeros.
+       01 salva        pic x(01) value spaces.
+       01 check        pic 9(06) value zeros.
+       01 wflag        pic 9(01) value zeros.
+       01 espaco       pic x(30) value spaces.
+       01 op-continua  pic x(01) value spaces.
+      
