@@ -159,3 +159,31 @@
            02 line 9 col 19 value "Numero:".
            02 line 10 col 19 value "Data de retirada: ".
            02 line 13 col 19 value "Deseja emprestar? <S/N>".
+
+       Procedure Division.
+       Inicio.
+           Perform Abre-arq1.
+           Perform Abre-arq2.
+           Perform Abre-arq3.
+           Move function current-date to data-sis.
+           Perform Processo until op = 9.
+           Perform Finaliza.
+           stop run.
+       Abre-arq1.
+           Open i-o BBMOVIM.
+           If arqst not = "00"
+               Display "erro de abertura" at 2110
+               Close BBMOVIM
+               Open output BBMOVIM.
+       Abre-arq2.
+           Open i-o BBLIVROS.
+           If arqst not = "00"
+               Display "erro de abertura" at 2110
+               Close BBLIVROS
+               Open output BBLIVROS.
+       Abre-arq3.
+           Open i-o BBSOCIOS.
+               If arqst not = "00"
+               Display "erro de abertura" at 2110
+               Close BBLIVROS
+               Open output BBLIVROS.      
