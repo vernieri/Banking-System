@@ -255,3 +255,10 @@
            Display tela-menu.
            Display mes-t(mes) at 0219.
            move zeros to op.      
+
+       Finaliza.
+           close BBMOVIM.
+           close BBLIVROS.
+           close BBSOCIOS.
+           Display "F I M   D O   P R O G R A M A" at 1530.
+      
