@@ -187,3 +187,13 @@
                Display "erro de abertura" at 2110
                Close BBLIVROS
                Open output BBLIVROS.      
+
+       atualiza-livros.
+           move w-tombo-li to tombo-li.
+           read BBSOCIOS key is tombo-li
+               invalid key
+                   display "Livro nao encontrado!" at 1835
+               not invalid key
+                   compute emprestado = emprestado + 1
+                   write reg-livro invalid key perform estuda-erro..
+      
