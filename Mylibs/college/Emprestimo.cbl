@@ -197,3 +197,19 @@
                    compute emprestado = emprestado + 1
                    write reg-livro invalid key perform estuda-erro..
       
+
+       atualiza-socios.
+           move w-numero-so to numero-so.
+           read BBSOCIOS key is numero-so
+               invalid key
+                   display "Socio nao encontrado!" at 1835
+               not invalid key
+                   if livros > 3
+                       display "Socio ja atingiu o limite"
+                       perform Processo
+                   else
+                       compute livros = livros + 1
+                       write reg-socio invalid key perform estuda-erro.
+
+
+      
