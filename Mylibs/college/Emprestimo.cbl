@@ -247,3 +247,11 @@
                perform emprestimo until op-continua = "n" or "N"
            when 9
                perform retorno until op-continua = "n" or "N".     
+
+       Retorno.
+           Perform Processo.
+
+       Mostra-tela-menu.
+           Display tela-menu.
+           Display mes-t(mes) at 0219.
+           move zeros to op.      
