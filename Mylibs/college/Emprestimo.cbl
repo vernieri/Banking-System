@@ -235,3 +235,15 @@
            display "Erro! Registro Nao encontrado!." at 2121.
            display arqst at 2221.
            stop " ".      
+
+        Processo.
+           Perform mostra-tela-menu.
+           move zeros to op.
+           move zeros to w-reg-movim.
+           move spaces to op-continua.
+           Accept op-continua at 1845 with prompt auto.
+           Evaluate op-continua
+           when 1
+               perform emprestimo until op-continua = "n" or "N"
+           when 9
+               perform retorno until op-continua = "n" or "N".     
