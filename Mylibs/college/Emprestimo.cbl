@@ -211,5 +211,24 @@
                        compute livros = livros + 1
                        write reg-socio invalid key perform estuda-erro.
 
+       emprestimo.
+           Display tela-emprestimo.
+           accept w-tombo-li at 0827.
+           move w-tombo-li to tombo-li
+           READ BBSOCIOS key is tombo-li INVALID KEY perform
+           estuda-erro.
+           accept w-numero-so at 0930.
+           move w-numero-so to numero-so.
+           READ BBLIVROS key is numero-so
+           INVALID KEY perform estuda-erro.
+           Move function current-date to w-data-retirada.
+           display w-data-retirada at 1040.
+           perform atualiza-socios.
+           perform atualiza-livros.
+           accept op at 1345.
+           if op = "S" or "s"
+              write reg-livro invalid key perform estuda-erro
+           ELSE
+              PERFORM Processo.      
 
       
