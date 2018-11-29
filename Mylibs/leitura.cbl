@@ -113,7 +113,6 @@
                perform PROCESSO.
 
        FINALIZA.
-
            CLOSE ACCOUNTS.
            STOP RUN.
       
