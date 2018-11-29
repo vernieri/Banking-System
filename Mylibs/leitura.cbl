@@ -63,3 +63,57 @@
            02 LINE 10 COL 10 VALUE "SALARIO:".
            02 LINE 11 COL 10 VALUE "DEPARTAMENTO:".
            02 LINE 13 COL 10 VALUE "PROXIMO?<S/N>".
+
+       PROCEDURE DIVISION.
+       INICIO.
+           PERFORM ABRE-ARQ.
+           PERFORM PROCESSO.
+           PERFORM FINALIZA.
+
+       ABRE-ARQ.
+           OPEN I-O ACCOUNTS.
+           IF ARQST NOT = "00"
+               CLOSE ACCOUNTS
+               OPEN OUTPUT ACCOUNTS.
+
+       PROCESSO.
+           DISPLAY TELA-LEITURA.
+           PERFORM ENTRA-CODIGO.
+
+
+       ENTRA-CODIGO.
+           ACCEPT W-CODIGO AT 0438 WITH PROMPT AUTO.
+           IF W-CODIGO = 9999
+              CLOSE ACCOUNTS
+              STOP RUN.
+           CLOSE ACCOUNTS.
+           PERFORM ABRE-ARQ.
+           MOVE ZEROS TO WS-FL.
+           PERFORM LER-REGISTRO UNTIL WS-FL >= 1.
+           IF WS-FL = 2
+              DISPLAY "REGISTO NAO CADASTRADO" AT 2030.
+
+       LER-REGISTRO.
+           READ ACCOUNTS NEXT AT END MOVE 2 TO WS-FL.
+           IF ARQST = "00"
+              IF W-CODIGO = CODIGO
+                 MOVE REG-ACC TO REG-ACC-W
+                 MOVE 1 TO WS-FL.
+
+           PERFORM PRINTA.
+
+       PRINTA.
+           DISPLAY W-NOME AT 0740.
+           DISPLAY W-EMAIL AT 0840.
+           DISPLAY W-PROFISSAO AT 0940.
+           DISPLAY W-SALARIO AT 1040.
+           DISPLAY W-DEPARTAMENTO AT 1140.
+           ACCEPT OP AT 1340.
+           IF OP = "S" or "s"
+               perform PROCESSO.
+
+       FINALIZA.
+
+           CLOSE ACCOUNTS.
+           STOP RUN.
+      
