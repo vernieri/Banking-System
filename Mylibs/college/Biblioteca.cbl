@@ -121,8 +121,8 @@
                    PERFORM IMP-CADASTRO UNTIL opcMenu2 = 3
                WHEN 2
                    PERFORM IMP-MOVIMENTO UNTIL opcMenu3 = 3
-      *         WHEN 3
-      *             PERFORM IMP-SOBRE
+               WHEN 3
+                   PERFORM IMP-SOBRE
            END-EVALUATE.
 
        IMP-CADASTRO.
@@ -131,12 +131,12 @@
            DISPLAY msg-opc AT 2125 FOREGROUND-COLOR 11.
            MOVE ZEROS TO opcMenu2.
            ACCEPT opcMenu2 AT 2149 WITH PROMPT AUTO.
-      *     EVALUATE opcMenu2
-      *         WHEN 1
-      *             CALL "LIVROS"
-      *         WHEN 2
-      *             CALL "SOCIOS"
-      *     END-EVALUATE.
+           EVALUATE opcMenu2
+               WHEN 1
+                   CALL "LIVROS"
+               WHEN 2
+                   CALL "SOCIOS"
+           END-EVALUATE.
 
        IMP-MOVIMENTO.
            PERFORM IMP-CABEC.
