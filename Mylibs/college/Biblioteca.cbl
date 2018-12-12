@@ -133,7 +133,7 @@
            ACCEPT opcMenu2 AT 2149 WITH PROMPT AUTO.
            EVALUATE opcMenu2
                WHEN 1
-                   CALL "LIVROS"
+                   CALL "Livros"
                WHEN 2
                    CALL "SOCIOS"
            END-EVALUATE.
@@ -146,9 +146,9 @@
            ACCEPT opcMenu3 AT 2149 WITH PROMPT AUTO.
            EVALUATE opcMenu3
                WHEN 1
-                   CALL "EMPRESTIMO"
+                   CALL "Emprestimo"
                WHEN 2
-                   CALL "DEVOLUCAO"
+                   CALL "Devolucao"
            END-EVALUATE.
 
        IMP-SOBRE.
