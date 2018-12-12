@@ -93,7 +93,8 @@
            03 LINE 12 COL 23 VALUE "[ F I M   D E   P R O G R A M A ]"
                FOREGROUND-COLOR 14.
 
-             PROCEDURE DIVISION.
+      
+      PROCEDURE DIVISION.
 
        INICIO.
            PERFORM PROCESSO UNTIL opcMenu1 = 4.
