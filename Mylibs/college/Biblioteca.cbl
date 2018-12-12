@@ -144,11 +144,11 @@
            DISPLAY msg-opc AT 2125 FOREGROUND-COLOR 11.
            MOVE ZEROS TO opcMenu3.
            ACCEPT opcMenu3 AT 2149 WITH PROMPT AUTO.
-      *     EVALUATE opcMenu3
-      *         WHEN 1
-      *             CALL "EMPRESTIMO"
-      *         WHEN 2
-      *             CALL "DEVOLUCAO"
-      *     END-EVALUATE.
+           EVALUATE opcMenu3
+               WHEN 1
+                   CALL "EMPRESTIMO"
+               WHEN 2
+                   CALL "DEVOLUCAO"
+           END-EVALUATE.
 
-      * IMP-SOBRE.
+       IMP-SOBRE.
