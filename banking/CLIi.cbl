@@ -6,6 +6,7 @@
       ******************************************************************
        IDENTIFICATION DIVISION.
        PROGRAM-ID.    CLIENTE.
+      
 
        ENVIRONMENT DIVISION.
        CONFIGURATION SECTION.
