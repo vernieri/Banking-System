@@ -6,7 +6,6 @@
       ******************************************************************
        IDENTIFICATION DIVISION.
        PROGRAM-ID.    CLIENTE.
-
        ENVIRONMENT DIVISION.
        CONFIGURATION SECTION.
        SPECIAL-NAMES.        DECIMAL-POINT IS COMMA.
